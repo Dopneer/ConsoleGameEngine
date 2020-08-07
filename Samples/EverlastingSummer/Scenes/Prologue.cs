@@ -1,17 +1,64 @@
 ﻿using System;
+using System.Threading;
+
 namespace ConsoleGameEngine.Scenes
 {
     public class Prologue : IScene
     {
 
-        public static void Story(Core core, DialogField dialogField, GameObject Mush)
+        public static void Story(Core core, DialogField dialogField)
         {
 
             core.DrawContent();
 
+            Thread Animator;
+
             ConsoleKey Input;
 
-            
+            GameObject Mush = new GameObject(0, 0, new Symbol[Program.SizeY, Program.SizeX], false);
+
+            Mush.Update.Add(new GameObjectDelegate(Mush =>
+            {
+                byte[] BadColors = new byte[] { 0xFC, 0xFD, 0xFE, 0xFF };
+
+                for (int i = 0; i < Mush.Content.GetLength(0); i++)
+                {
+                    for (int j = 0; j < Mush.Content.GetLength(1); j++)
+                    {
+                        Mush.Content[i, j] = new Symbol(' ', 0x52);
+                    }
+                }
+
+                // Random count of bad lines
+                for (int i = 0; i < new Random().Next((int)Math.Ceiling((float)Program.SizeY / 100 * 10), (int)Math.Ceiling((float)Program.SizeY / 100 * 20)); i++)
+                {
+                    int Height = new Random().Next(0, Mush.Content.GetLength(0)); // Random height to bad line
+
+                    // For all width
+                    for (int j = 0; j < Mush.Content.GetLength(1); j++)
+                    {
+                        Mush.Content[Height, j] = new Symbol(' ', BadColors[new Random().Next(0, BadColors.Length)]);
+                    }
+                }
+            }));
+
+
+            core.Effect = Mush;
+
+            // Example of animation
+
+            // Update thread
+            /* Animator = new Thread(new ThreadStart(dialogField.Animation));
+            Animator.Start();
+
+            // While thread active
+            while(Animator.IsAlive)
+            {
+                // Update frame
+                core.DrawContent();
+
+                Thread.Sleep(50);
+            } */
 
             dialogField.DrawText("Мне опять снился сон.");
 
@@ -45,8 +92,6 @@ namespace ConsoleGameEngine.Scenes
 
             // Переход
 
-
-            core.Effect = Mush;
 
             dialogField.DrawText("Ты пойдешь со мной?");
 

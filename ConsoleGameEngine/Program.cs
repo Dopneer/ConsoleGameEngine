@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Threading;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.IO;
-using System.Text;
-using ConsoleGameEngine.Scenes;
+
+// Бюджет игры и движка: 250 кошкодевочек и 1038 рублей 17.07.2020
+// Бюджет игры и движка: 280 кошкодевочек и 1038 рублей 20.07.2020
 
 namespace ConsoleGameEngine
 {
 
     public delegate void InputDelegate(ConsoleKey input);
     public delegate void GameObjectDelegate(GameObject gameObject);
+    public delegate void VoidDelegate();
 
 
     class Program
@@ -25,66 +27,57 @@ namespace ConsoleGameEngine
         public static Random random = new Random();
 
 
-        private static string rootPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())))) + "/assets/";
+        public static string rootPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())))) + "/assets/";
+
+
+        [DllImport("libc")]
+        private static extern int system(string exec);
+
+
+
 
         static void Main(string[] args)
         {
 
+            
 
-            Core core = new Core();
+            //Console.WriteLine("\x1b[48;5k;50mTest\x1b[0m");
 
-            core.clickButtons.Add(ConsoleKey.Spacebar);
 
-            GameObject.core = core;
+            //system(@"printf '\e[8;70;150t'");
+            //Console.WriteLine("\x1b[8;50;100t");
 
-            Thread InputReader = new Thread(core.UpdateInput);
-            InputReader.Start();
+            //Console.WriteLine(Console.WindowHeight);
+            //Console.WriteLine(Console.WindowWidth);
+
+
+            //Console.ReadKey();
+
+
+            //Sample how to create sample:
+            //Samples.Cnake.Start.StartGame();
+
 
             
 
-            GameObject Mush = new GameObject(0, 0, new Symbol[SizeY, SizeX], false);
+            Samples.BlackJack.Start.StartGame();
 
-            Mush.Update.Add(new GameObjectDelegate(Mush =>
+            /* dialogField.Animation = new VoidDelegate(() =>
             {
-                byte[] BadColors = new byte[] { 0xFC, 0xFD, 0xFE, 0xFF };
 
-                for (int i = 0; i < Mush.Content.GetLength(0); i++)
+                for(int i = 0; i < 30; i++)
                 {
-                    for (int j = 0; j < Mush.Content.GetLength(1); j++)
-                    {
-                        Mush.Content[i, j] = new Symbol(' ', 0x52);
-                    }
+                    dialogField.PosY--;
+                    Thread.Sleep(50);
                 }
 
-                // Random count of bad lines
-                for (int i = 0; i < new Random().Next((int)Math.Ceiling((float)SizeY / 100 * 10), (int)Math.Ceiling((float)SizeY / 100 * 20)); i++)
-                {
-                    int Height = new Random().Next(0, Mush.Content.GetLength(0)); // Random height to bad line
-                    
-                    // For all width
-                    for(int j = 0; j < Mush.Content.GetLength(1); j++)
-                    {
-                        Mush.Content[Height, j] = new Symbol(' ', BadColors[new Random().Next(0, BadColors.Length)]);
-                    }
-                }
-            }));
+            }); */
 
-            
 
-            core.BackGround = new GameObject(0, 0, rootPath + "backgrounds/menu.txt");
-
-            core.CreateWindow(SizeY, SizeX);
-
-            DialogField dialogField = new DialogField((SizeY) - (int)Math.Ceiling((float)SizeY / 100 * 20), 1, new Symbol[(int)Math.Ceiling((float)SizeY / 100 * 20) - 1, SizeX - 2]);
-
-            core.UI.Add(dialogField);
+            // Prologue.Story(core, dialogField);
 
 
 
-            Prologue.Story(core, dialogField, Mush);
-            
-
-            
         }
 
     }
@@ -109,14 +102,21 @@ namespace ConsoleGameEngine
         public GameObject Cursor = null;
         public GameObject BackGround;
 
+        /// <summary>
+        /// May be null!
+        /// </summary>
+        public GameObject CursorHover; // Объект по вверх которого курсок
+
+
+
+       
 
 
         public void UpdateInput()
         {
-            while(true)
+            while (true)
             {
                 LastInput = Console.ReadKey().Key;
- 
             }
         }
 
@@ -202,9 +202,14 @@ namespace ConsoleGameEngine
         public void DrawContent()
         {
 
-            for(int i = 0; i < window.Content.GetLength(0); i++)
+            if(Cursor != null)
             {
-                for(int j = 0; j < window.Content.GetLength(1); j++)
+                
+            }
+
+            for (int i = 0; i < window.Content.GetLength(0); i++)
+            {
+                for (int j = 0; j < window.Content.GetLength(1); j++)
                 {
                     window.Content[i, j] = new Symbol(' ', 0xFF);
                 }
@@ -226,8 +231,6 @@ namespace ConsoleGameEngine
 
             window.Draw();
 
-            Thread.Sleep(66);
-
 
         }
 
@@ -238,7 +241,7 @@ namespace ConsoleGameEngine
                 return;
             }
 
-            if(obj.Update != null)
+            if (obj.Update != null)
             {
                 foreach (GameObjectDelegate gameObjectDelegate in obj.Update)
                 {
@@ -295,7 +298,48 @@ namespace ConsoleGameEngine
         private void UpdateData()
         {
 
-            DrawObject(BackGround);
+            if(Cursor != null)
+            {
+                Console.WriteLine(CursorHover == null);
+                // If we have cursorHover and cursor leave (not cross) cursor hover
+                if(CursorHover != null && !IsCrossing(Cursor, CursorHover))
+                {
+                    
+                    // Call cursor mouse out
+                    foreach(VoidDelegate onMouseOut in CursorHover.OnMouseOut)
+                    {
+                        onMouseOut();
+                    }
+                    
+                    // Delete cursor hover (cause now cursor not hover)
+                    CursorHover = null;
+                }
+
+                for(int i = Objects.Count - 1; i >= 0; i--)
+                {
+                    if(IsCrossing(Cursor, Objects[i]))
+                    {
+                        CursorHover = Objects[i];
+                        foreach(VoidDelegate onMouseOver in Objects[i].OnMouseOver)
+                        {
+                            onMouseOver();
+                        }
+                        
+                    }
+                }
+
+            }
+
+
+            if(BackGround != null)
+            {
+                DrawObject(BackGround);
+            }
+            
+            if(Cursor != null)
+            {
+                DrawObject(Cursor);
+            }
 
             foreach (GameObject obj in Objects)
             {
@@ -304,12 +348,12 @@ namespace ConsoleGameEngine
 
             }
 
-            if(Effect != null)
+            if (Effect != null)
             {
                 DrawObject(Effect);
             }
 
-            foreach(GameObject obj in UI)
+            foreach (GameObject obj in UI)
             {
 
                 DrawObject(obj);

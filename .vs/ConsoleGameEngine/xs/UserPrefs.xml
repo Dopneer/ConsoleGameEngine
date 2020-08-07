@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{AE2E5731-12D6-4881-A614-DF69843AF4ED}|Default">
+  <MonoDevelop.Ide.ItemProperties.ConsoleGameEngine PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleGameEngine/Samples/BlackJack/Start.cs">
+    <Files>
+      <File FileName="ConsoleGameEngine/Program.cs" Line="88" Column="40" />
+      <File FileName="ConsoleGameEngine/Samples/BlackJack/Start.cs" Line="214" Column="23" />
+      <File FileName="ConsoleGameEngine/GameObject.cs" Line="367" Column="21" />
+      <File FileName="ConsoleGameEngine/Samples/BlackJack/Deck.cs" Line="104" Column="43" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ConsoleGameEngine" expanded="True">
+            <Node name="ConsoleGameEngine" expanded="True">
+              <Node name="Samples" expanded="True">
+                <Node name="BlackJack" expanded="True">
+                  <Node name="Start.cs" selected="True" />
+                </Node>
+                <Node name="Cnake" expanded="True" />
+                <Node name="EverlastingSummer" expanded="True" />
+                <Node name="Tetris" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

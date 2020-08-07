@@ -26,6 +26,24 @@ namespace ConsoleGameEngine
             }
         }
 
+        public void DrawObject(GameObject obj)
+        {
+            Console.SetCursorPosition(obj.PosX, obj.PosY);
+
+            for(int i = 0; i < obj.Content.GetLength(0); i++)
+            {
+                for(int j = 0; j < obj.Content.GetLength(1); j++)
+                {
+                    if(obj.Content[i, j].Color == 0x52)
+                    {
+                        continue;
+                    }
+                    Console.Write("\x1b[48;5;" + obj.Content[i, j].Color + "m" + obj.Content[i, j].Value);
+                }
+                Console.WriteLine();
+            }
+        }
+
         public void Draw()
         {
             Console.Clear();
