@@ -39,28 +39,23 @@ namespace ConsoleGameEngine
         static void Main(string[] args)
         {
 
-            
-
-            //Console.WriteLine("\x1b[48;5k;50mTest\x1b[0m");
 
 
-            //system(@"printf '\e[8;70;150t'");
-            //Console.WriteLine("\x1b[8;50;100t");
-
-            //Console.WriteLine(Console.WindowHeight);
-            //Console.WriteLine(Console.WindowWidth);
 
 
-            //Console.ReadKey();
 
+            //Uncomment necessary game to play
 
-            //Sample how to create sample:
+            //Samples.BlackJack.Start.StartGame();
             //Samples.Cnake.Start.StartGame();
+            //Samples.EverlsatingSummer.Start.StartGame();
 
 
-            
 
-            Samples.BlackJack.Start.StartGame();
+
+
+
+
 
             /* dialogField.Animation = new VoidDelegate(() =>
             {
@@ -72,9 +67,6 @@ namespace ConsoleGameEngine
                 }
 
             }); */
-
-
-            // Prologue.Story(core, dialogField);
 
 
 

@@ -20,8 +20,5 @@
     <Compile Include="..\Samples\EverlastingSummer\Scene.cs">
       <Link>Scene.cs</Link>
     </Compile>
-    <Compile Include="..\Samples\EverlastingSummer\Scenes\Prologue.cs">
-      <Link>Samples\EverlastingSummer\Prologue.cs</Link>
-    </Compile>
   </ItemGroup>
 </Project>
