@@ -72,6 +72,10 @@ namespace ConsoleGameEngine.Samples.BlackJack
 
     public class Card
     {
+
+        
+        
+
         // Self object
         public GameObject obj;
 
@@ -79,6 +83,8 @@ namespace ConsoleGameEngine.Samples.BlackJack
         public int Value;
         public string Name;
         public bool Hidden = false;
+
+        public string loadName; // Name to load texuture;
 
         private Symbol[,] HiddenTexture; // Save texture of hidden card (to open them later)
         private string HiddenName;
@@ -100,6 +106,8 @@ namespace ConsoleGameEngine.Samples.BlackJack
             this.Hidden = Hidden;
         }
 
+
+
         public void HideCard()
         {
             HiddenTexture = obj.Content;
@@ -108,7 +116,7 @@ namespace ConsoleGameEngine.Samples.BlackJack
             Name = "(Unknown)";
 
             Hidden = true;
-            obj.LoadTexture(Program.rootPath + "/blackjack/cards/emptycard.txt");
+            obj.LoadTexture(Start.path + "/emptycard.txt");
         }
 
         public void ShowCard()

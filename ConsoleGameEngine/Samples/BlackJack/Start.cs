@@ -17,31 +17,72 @@ namespace ConsoleGameEngine.Samples.BlackJack
         private static TextField DealerScoreField;
         private static TextField PlayerScoreField;
 
-        
+        public static string path;
 
 
-        public static List<Card> cards = new List<Card>()
+        public static List<Card> cards = new List<Card>();
+
+        private static void LoadCards()
         {
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/6spades.txt"), 6, "Six of spades"),
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/7spades.txt"), 7, "Seven of spades"),
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/8spades.txt"), 8, "Eight of spades"),
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/9spades.txt"), 9, "Nine of spades"),
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/10spades.txt"), 10, "Ten of spades"),
+            path = Program.rootPath + "blackjack/cards/standart/";
 
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/jackspades.txt"), 10, "Jack of spades"),
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/kingspades.txt"), 10, "King of spades"),
+            if(Program.OperationSystem == "windows")
+            {
+                path += "windows/";
+            }
 
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/acehearts.txt"), 11, "Ace of hearts"),
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/aceclubs.txt"), 11, "Ace of clubs"),
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/acediamonds.txt"), 11, "Ace of diamonds"),
-            new Card(new GameObject(2, 1, Program.rootPath + "blackjack/cards/acespades.txt"), 11, "Ace of spades"),
-        };
+
+            cards.Add(new Card(new GameObject(2, 1, path + "spades/six.txt"), 6, "Six of spades"));
+            cards.Add(new Card(new GameObject(2, 1, path + "clubs/six.txt"), 6, "Six of clubs"));
+            cards.Add(new Card(new GameObject(2, 1, path + "diamonds/six.txt"), 6, "Six of diamonds"));
+            cards.Add(new Card(new GameObject(2, 1, path + "hearts/six.txt"), 6, "Six of hearts"));
+
+
+            cards.Add(new Card(new GameObject(2, 1, path + "spades/seven.txt"), 7, "Seven of spades"));
+            cards.Add(new Card(new GameObject(2, 1, path + "clubs/seven.txt"), 7, "Seven of clubs"));
+            cards.Add(new Card(new GameObject(2, 1, path + "hearts/seven.txt"), 7, "Seven of hearts"));
+            cards.Add(new Card(new GameObject(2, 1, path + "diamonds/seven.txt"), 7, "Seven of diamonds"));
+
+
+            cards.Add(new Card(new GameObject(2, 1, path + "spades/eight.txt"), 8, "Eight of spades"));
+            cards.Add(new Card(new GameObject(2, 1, path + "clubs/eight.txt"), 8, "Eight of clubs"));
+            cards.Add(new Card(new GameObject(2, 1, path + "hearts/eight.txt"), 8, "Eight of hearts"));
+            cards.Add(new Card(new GameObject(2, 1, path + "diamonds/eight.txt"), 8, "Eight of diamonds"));
+
+
+            cards.Add(new Card(new GameObject(2, 1, path + "spades/nine.txt"), 9, "Nine of spades"));
+            cards.Add(new Card(new GameObject(2, 1, path + "clubs/nine.txt"), 9, "Nine of clubs"));
+            cards.Add(new Card(new GameObject(2, 1, path + "hearts/nine.txt"), 9, "Nine of hearts"));
+            cards.Add(new Card(new GameObject(2, 1, path + "diamonds/nine.txt"), 9, "Nine of diamonds"));
+
+
+            cards.Add(new Card(new GameObject(2, 1, path + "spades/ten.txt"), 10, "Ten of spades"));
+            cards.Add(new Card(new GameObject(2, 1, path + "clubs/ten.txt"), 10, "Ten of clubs"));
+            cards.Add(new Card(new GameObject(2, 1, path + "hearts/ten.txt"), 10, "Ten of hearts"));
+            cards.Add(new Card(new GameObject(2, 1, path + "diamonds/ten.txt"), 10, "Ten of diamonds"));
+
+            cards.Add(new Card(new GameObject(2, 1, path + "spades/jack.txt"), 10, "Jack of spades"));
+            cards.Add(new Card(new GameObject(2, 1, path + "clubs/jack.txt"), 10, "Jack of clubs"));
+            cards.Add(new Card(new GameObject(2, 1, path + "hearts/jack.txt"), 10, "Jack of hearts"));
+            cards.Add(new Card(new GameObject(2, 1, path + "diamonds/jack.txt"), 10, "Jack of diamonds"));
+
+
+            cards.Add(new Card(new GameObject(2, 1, path + "spades/king.txt"), 10, "King of spades"));
+            cards.Add(new Card(new GameObject(2, 1, path + "clubs/king.txt"), 10, "King of clubs"));
+            cards.Add(new Card(new GameObject(2, 1, path + "hearts/king.txt"), 10, "King of hearts"));
+            cards.Add(new Card(new GameObject(2, 1, path + "diamonds/king.txt"), 10, "King of diamonds"));
+
+            cards.Add(new Card(new GameObject(2, 1, path + "hearts/ace.txt"), 11, "Ace of hearts"));
+            cards.Add(new Card(new GameObject(2, 1, path + "clubs/ace.txt"), 11, "Ace of clubs"));
+            cards.Add(new Card(new GameObject(2, 1, path + "diamonds/ace.txt"), 11, "Ace of diamonds"));
+            cards.Add(new Card(new GameObject(2, 1, path + "spades/ace.txt"), 11, "Ace of spades"));
+        }
 
         public static void StartGame()
         {
 
-            
-            
+
+            LoadCards();
 
             deck = new Deck(cards);
 
@@ -75,20 +116,46 @@ namespace ConsoleGameEngine.Samples.BlackJack
             GiveCard(0, true, true);
             GiveCard(0, false, true);
 
-            if(PlayersCards[0][0].Value + PlayersCards[0][1].Value == 21)
-            {
-                PlayersCards[0][0].ShowCard();
-                EndGame();
-            }
-
             // Give 2 cards to player
 
             GiveCard(1, false, true);
             GiveCard(1, false, true);
 
+            if (PlayersCards[0][0].Value + PlayersCards[0][1].Value == 21)
+            {
+                PlayersCards[0][0].ShowCard();
+
+                CalculateScore();
+                UpdateFields();
+                core.DrawContent();
+
+                if(PlayersCards[1][0].Value + PlayersCards[1][1].Value == 21)
+                {
+                    Console.WriteLine("0_0 У вас и у дилера Blackjack 0_0");
+                }
+                else
+                {
+                    Console.WriteLine("У дилера Blackjack - Вы проиграли");
+                }
+
+                System.Environment.Exit(0);
+
+            }
+
+            
+
             if (PlayersCards[1][0].Value + PlayersCards[1][1].Value == 21)
             {
-                EndGame();
+                PlayersCards[0][0].ShowCard();
+
+
+                CalculateScore();
+                UpdateFields();
+                core.DrawContent();
+
+                Console.WriteLine("У Вас Blackjack - Вы победили!");
+
+                System.Environment.Exit(0);
             }
 
             CalculateScore();
@@ -102,8 +169,7 @@ namespace ConsoleGameEngine.Samples.BlackJack
 
 
 
-            while (true)
-            {
+            
 
                 // Player turn
 
@@ -115,7 +181,7 @@ namespace ConsoleGameEngine.Samples.BlackJack
 
                     core.DrawContent();
 
-                    Select select = new Select((Console.WindowHeight / 2) - 2, (Program.SizeX / 2) - (70 / 2), new Symbol[5, 70], new string[] { "1. Взять карту", "2. Пас" }, true);
+                    Select select = new Select((Console.WindowHeight / 2) - 2, (Program.SizeX / 2) - (70 / 2), new Symbol[5, 70], new string[] { "1. Взять карту", "2. Пас" }, true, 8);
 
                     lastInput = select.UserSelect(new ConsoleKey[] { ConsoleKey.D1, ConsoleKey.D2 });
 
@@ -133,7 +199,8 @@ namespace ConsoleGameEngine.Samples.BlackJack
                     {
                         EndGame();
                     }
-                    else if(PlayerSoftScore[1] == 21)
+
+                    if(PlayerSoftScore[1] == 21)
                     {
                         break;
                     }
@@ -147,27 +214,32 @@ namespace ConsoleGameEngine.Samples.BlackJack
                 System.Threading.Thread.Sleep(500);
 
                 PlayersCards[0][0].ShowCard(); // Open hidden card
+                
+
+                CalculateScore();
+
+                UpdateFields();
 
                 core.DrawContent();
 
                 System.Threading.Thread.Sleep(1000);
 
-                while(PlayerSoftScore[0] < 17)
+                while(PlayerSoftScore[0] < 17 && PlayerSoftScore[0] < PlayerSoftScore[1])
                 {
-                    core.DrawContent();
-
                     GiveCard(0, false, true);
 
                     CalculateScore();
 
                     UpdateFields();
 
-                    EndGame(); // Check win
+                    core.DrawContent();
 
                     System.Threading.Thread.Sleep(500);
                 }
 
-            }
+                EndGame(); // Check win
+
+            
 
         }
 
@@ -192,7 +264,7 @@ namespace ConsoleGameEngine.Samples.BlackJack
                     string name;
                     if (card.Hidden)
                     {
-                        name = "(Unknown)";
+                        name = card.Name;
                     }
                     else
                     {
@@ -311,19 +383,19 @@ namespace ConsoleGameEngine.Samples.BlackJack
         private static void EndGame()
         {
 
+            
            
             if(PlayerSoftScore[0] == PlayerSoftScore[1] || (PlayerSoftScore[0] > 21 && PlayerSoftScore[1] > 21))
             {
-                Console.WriteLine("Ничья");
+                
             }
-
-            if((PlayerSoftScore[0] > PlayerSoftScore[1] && PlayerSoftScore[0] <= 21) || PlayerSoftScore[1] > 21)
+            else if((PlayerSoftScore[0] > PlayerSoftScore[1] && PlayerSoftScore[0] <= 21) || PlayerSoftScore[1] > 21)
             {
-                Console.WriteLine("Победил дилер");
+                
             }
             else if(PlayerSoftScore[1] > PlayerSoftScore[0] && PlayerSoftScore[1] <= 21)
             {
-                Console.WriteLine("Победил игрок");
+                
             }
             else
             {
@@ -337,9 +409,24 @@ namespace ConsoleGameEngine.Samples.BlackJack
             UpdateFields();
             core.DrawContent();
 
+            if (PlayerSoftScore[0] == PlayerSoftScore[1] || (PlayerSoftScore[0] > 21 && PlayerSoftScore[1] > 21))
+            {
+                Console.WriteLine("Ничья");
+            }
+            else if ((PlayerSoftScore[0] > PlayerSoftScore[1] && PlayerSoftScore[0] <= 21) || PlayerSoftScore[1] > 21)
+            {
+                Console.WriteLine("Победил дилер");
+            }
+            else if (PlayerSoftScore[1] > PlayerSoftScore[0] && PlayerSoftScore[1] <= 21)
+            {
+                Console.WriteLine("Победил игрок");
+            }
+
             System.Environment.Exit(0);
             
         }
+
+
 
 
     }

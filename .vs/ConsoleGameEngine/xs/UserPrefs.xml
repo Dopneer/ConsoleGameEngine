@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{AE2E5731-12D6-4881-A614-DF69843AF4ED}|Default">
   <MonoDevelop.Ide.ItemProperties.ConsoleGameEngine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleGameEngine/Samples/BlackJack/Start.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleGameEngine/GameObject.cs">
     <Files>
-      <File FileName="ConsoleGameEngine/Program.cs" Line="88" Column="40" />
-      <File FileName="ConsoleGameEngine/Samples/BlackJack/Start.cs" Line="214" Column="23" />
-      <File FileName="ConsoleGameEngine/GameObject.cs" Line="367" Column="21" />
-      <File FileName="ConsoleGameEngine/Samples/BlackJack/Deck.cs" Line="104" Column="43" />
+      <File FileName="ConsoleGameEngine/Program.cs" Line="24" Column="55" />
+      <File FileName="ConsoleGameEngine/Samples/BlackJack/Start.cs" Line="83" Column="25" />
+      <File FileName="ConsoleGameEngine/Samples/BlackJack/Deck.cs" Line="76" Column="9" />
+      <File FileName="ConsoleGameEngine/Window.cs" />
+      <File FileName="ConsoleGameEngine/GameObject.cs" Line="489" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,13 +14,11 @@
           <Node name="ConsoleGameEngine" expanded="True">
             <Node name="ConsoleGameEngine" expanded="True">
               <Node name="Samples" expanded="True">
-                <Node name="BlackJack" expanded="True">
-                  <Node name="Start.cs" selected="True" />
-                </Node>
+                <Node name="BlackJack" expanded="True" />
                 <Node name="Cnake" expanded="True" />
-                <Node name="EverlastingSummer" expanded="True" />
                 <Node name="Tetris" expanded="True" />
               </Node>
+              <Node name="GameObject.cs" selected="True" />
             </Node>
           </Node>
         </State>

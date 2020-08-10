@@ -11,14 +11,8 @@
   <ItemGroup>
     <Folder Include="Scenes — копия\" />
     <Folder Include="Samples\" />
-    <Folder Include="Samples\EverlastingSummer\" />
     <Folder Include="Samples\Cnake\" />
     <Folder Include="Samples\Tetris\" />
     <Folder Include="Samples\BlackJack\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\Samples\EverlastingSummer\Scene.cs">
-      <Link>Scene.cs</Link>
-    </Compile>
   </ItemGroup>
 </Project>

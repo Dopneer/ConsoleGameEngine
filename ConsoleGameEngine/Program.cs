@@ -5,6 +5,7 @@ using System.IO;
 
 // Бюджет игры и движка: 250 кошкодевочек и 1038 рублей 17.07.2020
 // Бюджет игры и движка: 280 кошкодевочек и 1038 рублей 20.07.2020
+// ЕБ ТВОЮ МАТЬ ДЕНЬГИ КОНЧИЛИСЬ КОШКОДЕВОЧЕК НЕ КИДАЮТ ТУТ ВАЩЕ ПИЗДЕЦЦЦЦЦЦЦЦ БЛЯЯЯЯЯЯчччччччч
 
 namespace ConsoleGameEngine
 {
@@ -19,6 +20,8 @@ namespace ConsoleGameEngine
 
         public static readonly int SizeY = Console.WindowHeight - 1;
         public static readonly int SizeX = Console.WindowWidth - 1;
+
+        public const string OperationSystem = "windows";
 
         public static List<ConsoleKey> Inputs = new List<ConsoleKey>();
 
@@ -46,7 +49,7 @@ namespace ConsoleGameEngine
 
             //Uncomment necessary game to play
 
-            //Samples.BlackJack.Start.StartGame();
+            Samples.BlackJack.Start.StartGame();
             //Samples.Cnake.Start.StartGame();
             //Samples.EverlsatingSummer.Start.StartGame();
 

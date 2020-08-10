@@ -47,15 +47,39 @@ namespace ConsoleGameEngine
         public void Draw()
         {
             Console.Clear();
-            for (int i = 0; i < SizeY; i++)
+            if (Program.OperationSystem == "windows")
             {
-                for (int j = 0; j < SizeX; j++)
+                for (int i = 0; i < SizeY; i++)
                 {
-                    Console.Write("\x1b[48;5;" + Content[i, j].Color + "m" + Content[i, j].Value);
+                    for (int j = 0; j < SizeX; j++)
+                    {
+                        if (Content[i, j].Color == 0x52)
+                        {
+                            continue;
+                        }
+                        Console.BackgroundColor = (ConsoleColor)(Content[i, j].Color % 16);
+                        Console.Write(Content[i, j].Value);
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
+                Console.BackgroundColor = ConsoleColor.White;
             }
-            Console.Write("\x1b[48;5;255m");
+            else
+            {
+                for (int i = 0; i < SizeY; i++)
+                {
+                    for (int j = 0; j < SizeX; j++)
+                    {
+                        if (Content[i, j].Color == 0x52)
+                        {
+                            continue;
+                        }
+                        Console.Write("\x1b[48;5;" + Content[i, j].Color + "m" + Content[i, j].Value);
+                    }
+                    Console.WriteLine();
+                }
+                Console.Write("\x1b[48;5;255m");
+            }
         }
 
     }

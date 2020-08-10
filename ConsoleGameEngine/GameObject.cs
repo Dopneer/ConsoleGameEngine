@@ -271,8 +271,13 @@ namespace ConsoleGameEngine
 
         }
 
-        public Select(int PosY, int PosX, Symbol[,] Content, string[] Text, bool AddToCore = false) : base (PosY, PosX, Content, AddToCore)
+        public Select(int PosY, int PosX, Symbol[,] Content, string[] Text, bool AddToCore = false, byte color = 0xFF) : base (PosY, PosX, Content, AddToCore)
         {
+
+            if(Program.OperationSystem == "windows")
+            {
+                color = (byte)(color % 16);
+            }
 
             Active = false;
 
@@ -280,7 +285,7 @@ namespace ConsoleGameEngine
             {
                 for (int j = 0; j < Content.GetLength(1); j++)
                 {
-                    Content[i, j] = new Symbol(' ', 0xEE);
+                    Content[i, j] = new Symbol(' ', color);
                 }
             }
 
