@@ -1,28 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/michaelskirda/Projects/EverlastingSummer/ConsoleGameEngine/ConsoleGameEngine.csproj": {}
+    "C:\\Users\\admin\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj": {}
   },
   "projects": {
-    "/Users/michaelskirda/Projects/EverlastingSummer/ConsoleGameEngine/ConsoleGameEngine.csproj": {
+    "C:\\Users\\admin\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/michaelskirda/Projects/EverlastingSummer/ConsoleGameEngine/ConsoleGameEngine.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj",
         "projectName": "ConsoleGameEngine",
-        "projectPath": "/Users/michaelskirda/Projects/EverlastingSummer/ConsoleGameEngine/ConsoleGameEngine.csproj",
-        "packagesPath": "/Users/michaelskirda/.nuget/packages/",
-        "outputPath": "/Users/michaelskirda/Projects/EverlastingSummer/ConsoleGameEngine/obj/",
+        "projectPath": "C:\\Users\\admin\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj",
+        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\admin\\ConsoleGameEngine\\ConsoleGameEngine\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/Users/michaelskirda/.config/NuGet/NuGet.Config"
+          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

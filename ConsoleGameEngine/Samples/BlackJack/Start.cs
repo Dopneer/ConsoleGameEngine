@@ -138,6 +138,8 @@ namespace ConsoleGameEngine.Samples.BlackJack
                     Console.WriteLine("У дилера Blackjack - Вы проиграли");
                 }
 
+                Console.ReadKey();
+
                 System.Environment.Exit(0);
 
             }
@@ -155,6 +157,8 @@ namespace ConsoleGameEngine.Samples.BlackJack
 
                 Console.WriteLine("У Вас Blackjack - Вы победили!");
 
+                Console.ReadKey();
+
                 System.Environment.Exit(0);
             }
 
@@ -162,7 +166,6 @@ namespace ConsoleGameEngine.Samples.BlackJack
 
             UpdateFields();
 
-            core.DrawContent();
 
 
 
@@ -179,9 +182,11 @@ namespace ConsoleGameEngine.Samples.BlackJack
                 {
 
 
-                    core.DrawContent();
+                    
 
                     Select select = new Select((Console.WindowHeight / 2) - 2, (Program.SizeX / 2) - (70 / 2), new Symbol[5, 70], new string[] { "1. Взять карту", "2. Пас" }, true, 8);
+
+                    core.DrawContent();
 
                     lastInput = select.UserSelect(new ConsoleKey[] { ConsoleKey.D1, ConsoleKey.D2 });
 
@@ -421,6 +426,8 @@ namespace ConsoleGameEngine.Samples.BlackJack
             {
                 Console.WriteLine("Победил игрок");
             }
+
+            Console.ReadKey();
 
             System.Environment.Exit(0);
             

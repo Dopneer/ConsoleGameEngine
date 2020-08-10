@@ -252,7 +252,6 @@ namespace ConsoleGameEngine
 
             Active = true;
 
-            core.DrawContent();
 
             while(!CorrectButtons.Contains(core.LastInput))
             {
@@ -279,7 +278,7 @@ namespace ConsoleGameEngine
                 color = (byte)(color % 16);
             }
 
-            Active = false;
+            Active = true;
 
             for (int i = 0; i < Content.GetLength(0); i++)
             {

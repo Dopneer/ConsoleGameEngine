@@ -18,10 +18,12 @@ namespace ConsoleGameEngine
     class Program
     {
 
-        public static readonly int SizeY = Console.WindowHeight - 1;
-        public static readonly int SizeX = Console.WindowWidth - 1;
+        public static int SizeY;
+        public static int SizeX;
 
         public const string OperationSystem = "windows";
+
+        
 
         public static List<ConsoleKey> Inputs = new List<ConsoleKey>();
 
@@ -30,7 +32,7 @@ namespace ConsoleGameEngine
         public static Random random = new Random();
 
 
-        public static string rootPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())))) + "/assets/";
+        public static string rootPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()))) + "/assets/";
 
 
         [DllImport("libc")]
@@ -42,7 +44,16 @@ namespace ConsoleGameEngine
         static void Main(string[] args)
         {
 
+            if (OperationSystem == "windows")
+            {
+                Console.ForegroundColor = ConsoleColor.Black;
 
+                Console.WindowHeight = 50;
+                Console.WindowWidth = 150;
+
+                SizeY = Console.WindowHeight - 1;
+                SizeX = Console.WindowWidth - 1;
+            }
 
 
 
