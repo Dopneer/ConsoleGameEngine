@@ -35,3 +35,16 @@ C:\Users\admin\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\Conso
 C:\Users\admin\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\ConsoleGameEngine.dll
 C:\Users\admin\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\ConsoleGameEngine.pdb
 C:\Users\admin\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\ConsoleGameEngine.genruntimeconfig.cache
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\bin\Debug\netcoreapp3.1\ConsoleGameEngine.exe
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\bin\Debug\netcoreapp3.1\ConsoleGameEngine.deps.json
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\bin\Debug\netcoreapp3.1\ConsoleGameEngine.runtimeconfig.json
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\bin\Debug\netcoreapp3.1\ConsoleGameEngine.runtimeconfig.dev.json
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\bin\Debug\netcoreapp3.1\ConsoleGameEngine.dll
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\bin\Debug\netcoreapp3.1\ConsoleGameEngine.pdb
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\ConsoleGameEngine.csprojAssemblyReference.cache
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\ConsoleGameEngine.AssemblyInfoInputs.cache
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\ConsoleGameEngine.AssemblyInfo.cs
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\ConsoleGameEngine.csproj.CoreCompileInputs.cache
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\ConsoleGameEngine.dll
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\ConsoleGameEngine.pdb
+C:\Users\admin\Documents\ConsoleGameEngine\ConsoleGameEngine\obj\Debug\netcoreapp3.1\ConsoleGameEngine.genruntimeconfig.cache

@@ -50,12 +50,10 @@ namespace ConsoleGameEngine
 
                 Console.WindowHeight = 50;
                 Console.WindowWidth = 150;
-
-                SizeY = Console.WindowHeight - 1;
-                SizeX = Console.WindowWidth - 1;
             }
 
-
+            SizeY = Console.WindowHeight - 1;
+            SizeX = Console.WindowWidth - 1;
 
 
             //Uncomment necessary game to play

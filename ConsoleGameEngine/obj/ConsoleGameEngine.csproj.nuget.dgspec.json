@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj": {}
+    "C:\\Users\\admin\\Documents\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj": {
+    "C:\\Users\\admin\\Documents\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj",
+        "projectUniqueName": "C:\\Users\\admin\\Documents\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj",
         "projectName": "ConsoleGameEngine",
-        "projectPath": "C:\\Users\\admin\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj",
+        "projectPath": "C:\\Users\\admin\\Documents\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\ConsoleGameEngine\\ConsoleGameEngine\\obj\\",
+        "outputPath": "C:\\Users\\admin\\Documents\\ConsoleGameEngine\\ConsoleGameEngine\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

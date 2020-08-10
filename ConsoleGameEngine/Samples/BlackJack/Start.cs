@@ -308,7 +308,7 @@ namespace ConsoleGameEngine.Samples.BlackJack
 
             if(playerID == 1)
             {
-                PlayersCards[playerID][PlayersCards[playerID].Count - 1].obj.PosY = Console.WindowHeight - PlayersCards[playerID][PlayersCards[playerID].Count - 1].obj.Content.GetLength(0);
+                PlayersCards[playerID][PlayersCards[playerID].Count - 1].obj.PosY = Program.SizeY - PlayersCards[playerID][PlayersCards[playerID].Count - 1].obj.Content.GetLength(0);
             }
 
             // Set Hidden attribute to last card of player
