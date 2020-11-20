@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.IO;
 
-// Бюджет игры и движка: 250 кошкодевочек и 1038 рублей 17.07.2020
-// Бюджет игры и движка: 280 кошкодевочек и 1038 рублей 20.07.2020
+// Бюджет игры и движка: 250 кошкодевочек и 17.07.2020
+// Бюджет игры и движка: 280 кошкодевочек и 20.07.2020
 // ЕБ ТВОЮ МАТЬ ДЕНЬГИ КОНЧИЛИСЬ КОШКОДЕВОЧЕК НЕ КИДАЮТ ТУТ ВАЩЕ ПИЗДЕЦЦЦЦЦЦЦЦ БЛЯЯЯЯЯЯчччччччч
 
 namespace ConsoleGameEngine
@@ -57,6 +57,34 @@ namespace ConsoleGameEngine
 
 
             //Uncomment necessary game to play
+
+
+            while(true)
+            {
+              Console.Clear();
+              string Input = Console.ReadLine().ToLower();
+              switch(Input)
+              {
+                case "blackjack":
+                case "1":
+                case "1.":
+                  Samples.BlackJack.Start.StartGame();
+                  break;
+                case "snake":
+                case "2":
+                case "2.":
+                  Samples.BlackJack.Start.StartGame();
+                  break;
+                case "everlastingsummer":
+                case "3":
+                case "3.":
+                  Samples.EverlastingSummer.Start.StartGame();
+                  break;
+                default:
+                  continue;
+              }
+              System.Enviroment.Exit(0);
+            }
 
             Samples.BlackJack.Start.StartGame();
             //Samples.Cnake.Start.StartGame();
