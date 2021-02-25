@@ -13,6 +13,9 @@
     <Folder Include="Samples\" />
     <Folder Include="Samples\Cnake\" />
     <Folder Include="Samples\Tetris\" />
-    <Folder Include="Samples\BlackJack\" />
+    <Folder Include="Samples\Cards\" />
+    <Folder Include="Samples\Cards\BlackJack\" />
+    <Folder Include="Samples\minesweeper\" />
+    <Folder Include="Samples\CRex\" />
   </ItemGroup>
 </Project>

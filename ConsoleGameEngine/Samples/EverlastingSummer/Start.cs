@@ -25,7 +25,8 @@ namespace ConsoleGameEngine.Samples.EverlsatingSummer
             core.CreateWindow(Program.SizeY, Program.SizeX);
 
 
-            GameObject gameObject = new GameObject(0, 0, new Symbol[,] { { new Symbol(' ', 0x66), new Symbol(' ', 0x66) } }, true);
+            GameObject gameObject = new GameObject(0, 0, new Symbol[,] { { new Symbol(' ', 0x66), new Symbol(' ', 0x66) } });
+            core.Cursor = gameObject;
 
             // Create dialog field. 20% height of console. 100% - 2px width of console.
             DialogField dialogField = new DialogField((Program.SizeY) - (int)Math.Ceiling((float)Program.SizeY / 100 * 20), 1, new Symbol[(int)Math.Ceiling((float)Program.SizeY / 100 * 20) - 1, Program.SizeX - 2]);
@@ -34,8 +35,10 @@ namespace ConsoleGameEngine.Samples.EverlsatingSummer
 
             core.DrawContent();
 
-            // Main menu
-            /*
+            
+            Scenes.Prologue.Story(core, dialogField);
+
+
             while (true)
             {
                 switch (core.LastInput)
@@ -60,7 +63,7 @@ namespace ConsoleGameEngine.Samples.EverlsatingSummer
                 core.LastInput = ConsoleKey.O;
 
                 Thread.Sleep(100);
-            } */
+            }
         }
     }
 }

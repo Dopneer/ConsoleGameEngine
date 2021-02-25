@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bsNe6LJEZbUIivhXjF8IgIcT/0AoK5XpPHQBCUxv7XNncgY3jnQZ+Xlgi6s/Hjf+dSfFbDMAhjl9SG/Z9G8X/Q==",
+  "dgSpecHash": "ZvAUbOKB4dzFIZrw5rLffo+SuOz+OwY5tWGyiSDtcKfvSQ/8o62oKP2t6x/DKLVow/a4uFDCDpzINMJJIW8xcw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\Documents\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj",
+  "projectFilePath": "/Users/egor/Projects/ConsoleGameEngine/ConsoleGameEngine/ConsoleGameEngine.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

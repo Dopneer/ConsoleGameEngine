@@ -29,25 +29,26 @@ namespace ConsoleGameEngine.Samples.Cnake
 
 
             GameObject.core = core;
+            core.BackgroundColor = 0x00;
 
 
-            Food = new GameObject(-10, -10, new Symbol[,] { { new Symbol('*', 0xFF) } }, true);
+            Food = new GameObject(-10, -10, new Symbol[,] { { new Symbol(' ', 0x04) } }, true);
 
             SnakeBody.Add(new GameObject(5, 5, new Snake[,]
             {
-                { new Snake('-', 0xFF, "right") }
+                { new Snake(' ', 0x02, "right") }
             }, true));
             SnakeBody.Add(new GameObject(5, 4, new Snake[,]
            {
-                { new Snake('#', 0xFF, "right") }
+                { new Snake(' ', 0x02, "right") }
            },true));
             SnakeBody.Add(new GameObject(5, 3, new Snake[,]
            {
-                { new Snake('#', 0xFF, "right") }
+                { new Snake(' ', 0x02, "right") }
            }, true));
             SnakeBody.Add(new GameObject(5, 2, new Snake[,]
            {
-                { new Snake('#', 0xFF, "right") }
+                { new Snake(' ', 0x02, "right") }
            }, true));
 
 
@@ -140,7 +141,7 @@ namespace ConsoleGameEngine.Samples.Cnake
                     posX = lastSnake.PosX;
                     Dir = (lastSnake.Content[0, 0] as Snake).Direction;
 
-                    SnakeBody.Add(new GameObject(posY, posX, new Snake[,] { { new Snake('#', 0xFF, Dir) } }, true));
+                    SnakeBody.Add(new GameObject(posY, posX, new Snake[,] { { new Snake(' ', 0x02, Dir) } }, true));
 
                 }
 
@@ -165,7 +166,7 @@ namespace ConsoleGameEngine.Samples.Cnake
                 // If out of map (Y)
                 if (gameObject.PosX < 0)
                     // Move on window sizee coordinate
-                    gameObject.Move(gameObject.PosY, SizeX);
+                    gameObject.Move(gameObject.PosY, SizeX); 
             }
 
             for (int i = SnakeBody.Count - 1; i > 0; i--)

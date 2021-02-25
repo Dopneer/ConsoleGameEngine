@@ -26,6 +26,7 @@ namespace ConsoleGameEngine
             }
         }
 
+
         public void DrawObject(GameObject obj)
         {
             Console.SetCursorPosition(obj.PosX, obj.PosY);
@@ -60,6 +61,7 @@ namespace ConsoleGameEngine
                         Console.BackgroundColor = (ConsoleColor)(Content[i, j].Color % 16);
                         Console.Write(Content[i, j].Value);
                     }
+                    Console.WriteLine();
                 }
                 Console.BackgroundColor = ConsoleColor.White;
             }

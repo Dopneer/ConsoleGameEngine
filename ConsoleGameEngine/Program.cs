@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.IO;
 
+<<<<<<< HEAD
+// Бюджет игры и движка: 250 кошкодевочек и 1038 рублей 17.07.2020
+// Бюджет игры и движка: 280 кошкодевочек и 1038 рублей 20.07.2020
+// ЕБ ТВОЮ МАТЬ ДЕНЬГИ КОНЧИЛИСЬ КОШКОДЕВОЧЕК НЕ КИДАЮТ ТУТ ВАЩЕ ПИЗДЕЦЦЦЦЦЦЦЦ БЛЯЯЯЯЯЯчччччччч ??.??.2020
+// Блояяять Джонни денег нету, кошкодевочки есть 461 штука. 1.09.2020
+=======
 // Бюджет игры и движка: 250 кошкодевочек и 17.07.2020
 // Бюджет игры и движка: 280 кошкодевочек и 20.07.2020
 // ЕБ ТВОЮ МАТЬ ДЕНЬГИ КОНЧИЛИСЬ КОШКОДЕВОЧЕК НЕ КИДАЮТ ТУТ ВАЩЕ ПИЗДЕЦЦЦЦЦЦЦЦ БЛЯЯЯЯЯЯчччччччч
+>>>>>>> 3270dc3bd865cd9a7ada408191489f10444dd4f9
 
 namespace ConsoleGameEngine
 {
@@ -23,7 +30,7 @@ namespace ConsoleGameEngine
 
         public const string OperationSystem = "windows";
 
-        
+        public static bool Is256Colors = true;
 
         public static List<ConsoleKey> Inputs = new List<ConsoleKey>();
 
@@ -41,23 +48,32 @@ namespace ConsoleGameEngine
 
 
 
+
         static void Main(string[] args)
         {
-
-            if (OperationSystem == "windows")
-            {
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WindowHeight = 50;
-                Console.WindowWidth = 150;
-            }
 
             SizeY = Console.WindowHeight - 1;
             SizeX = Console.WindowWidth - 1;
 
 
+
             //Uncomment necessary game to play
 
+
+            //Samples.BlackJack.Start.StartGame();
+            //Samples.Cnake.Start.StartGame();
+            Samples.EverlsatingSummer.Start.StartGame();
+            //Samples.minesweeper.Start.StartGame();
+
+
+
+<<<<<<< HEAD
+            /*
+            for (float i = 0; i <= 3.141; i += 0.001f)
+            {
+                Console.WriteLine(SizeY - 2 - (int)Math.Ceiling(Math.Sin(i) * 5));
+            } */
+=======
 
             while(true)
             {
@@ -89,7 +105,10 @@ namespace ConsoleGameEngine
             Samples.BlackJack.Start.StartGame();
             //Samples.Cnake.Start.StartGame();
             //Samples.EverlsatingSummer.Start.StartGame();
+>>>>>>> 3270dc3bd865cd9a7ada408191489f10444dd4f9
 
+
+            //Samples.CRex.Start.StartGame();
 
 
 
@@ -139,7 +158,7 @@ namespace ConsoleGameEngine
         /// </summary>
         public GameObject CursorHover; // Объект по вверх которого курсок
 
-
+        public byte BackgroundColor = 0xFF;
 
        
 
@@ -148,8 +167,13 @@ namespace ConsoleGameEngine
         {
             while (true)
             {
-                LastInput = Console.ReadKey().Key;
+                LastInput = Console.ReadKey(true).Key;
             }
+        }
+
+        public void UpdateInputOnce()
+        {
+            LastInput = Console.ReadKey(true).Key;
         }
 
 
@@ -165,6 +189,7 @@ namespace ConsoleGameEngine
             }
             return false;
         }
+
 
         public void ReadInput()
         {
@@ -214,6 +239,7 @@ namespace ConsoleGameEngine
 
         public void CreateWindow(int height, int width)
         {
+
             window = new Window(height, width);
 
             for (int i = 0; i < window.SizeY; i++)
@@ -243,7 +269,7 @@ namespace ConsoleGameEngine
             {
                 for (int j = 0; j < window.Content.GetLength(1); j++)
                 {
-                    window.Content[i, j] = new Symbol(' ', 0xFF);
+                    window.Content[i, j] = new Symbol(' ', BackgroundColor);
                 }
             }
 
@@ -327,7 +353,7 @@ namespace ConsoleGameEngine
         /// <summary>
         /// Отрисовываем каждый объект, что есть в массиве с объектами.
         /// </summary>
-        private void UpdateData()
+        public void UpdateData()
         {
 
             if(Cursor != null)

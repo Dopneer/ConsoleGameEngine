@@ -48,7 +48,7 @@ namespace ConsoleGameEngine.Scenes
             // Example of animation
 
             // Update thread
-            /* Animator = new Thread(new ThreadStart(dialogField.Animation));
+            Animator = new Thread(new ThreadStart(dialogField.Animation));
             Animator.Start();
 
             // While thread active
@@ -58,7 +58,8 @@ namespace ConsoleGameEngine.Scenes
                 core.DrawContent();
 
                 Thread.Sleep(50);
-            } */
+            }
+
 
             dialogField.DrawText("Мне опять снился сон.");
 

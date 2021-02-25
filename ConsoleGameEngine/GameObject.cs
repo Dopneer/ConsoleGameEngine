@@ -525,6 +525,18 @@ namespace ConsoleGameEngine
             }
         }
 
+        public GameObject GetClone()
+        {
+            return (GameObject)this.MemberwiseClone();
+        }
+
+        public GameObject(int PosY, int PosX)
+        {
+            Active = false;
+
+            Content = new Symbol[,] { { new Symbol(' ', 0x52) } };
+        }
+
         public GameObject(int PosY, int PosX, string path, bool AddToCore = false)
         {
             try

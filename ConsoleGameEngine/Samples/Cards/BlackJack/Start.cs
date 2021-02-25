@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ConsoleGameEngine.Samples.BlackJack
 {
 
-    public class Start : IStartGame
+    public class Start: IStartGame
     {
 
         private static Deck deck;
@@ -102,6 +102,8 @@ namespace ConsoleGameEngine.Samples.BlackJack
             Program.SizeX = Console.WindowWidth - 1;
 
 
+
+
             LoadCards();
 
             deck = new Deck(cards);
@@ -133,7 +135,7 @@ namespace ConsoleGameEngine.Samples.BlackJack
             PlayerSoftScore.Add(0);
 
             // Give 2 cards to dealer
-            GiveCard(0, true, true);
+            GiveCard(0, false, true);
             GiveCard(0, false, true);
 
             // Give 2 cards to player
@@ -238,8 +240,75 @@ namespace ConsoleGameEngine.Samples.BlackJack
 
                 System.Threading.Thread.Sleep(500);
 
-                PlayersCards[0][0].ShowCard(); // Open hidden card
-                
+            if(PlayerScore[1] < PlayerScore[0])
+            {
+                EndGame();
+            }
+
+            // Second player turn
+
+            lastInput = ConsoleKey.A; // Any key
+
+            while (lastInput != ConsoleKey.D2 && PlayerSoftScore[0] < 21)
+            {
+
+
+
+
+                Select select = new Select((Console.WindowHeight / 2) - 2, (Program.SizeX / 2) - (70 / 2), new Symbol[5, 70], new string[] { "1. Взять карту", "2. Пас" }, true, 8);
+
+                core.DrawContent();
+
+                lastInput = select.UserSelect(new ConsoleKey[] { ConsoleKey.D1, ConsoleKey.D2 });
+
+
+                if (lastInput == ConsoleKey.D1)
+                {
+                    GiveCard(0, false, true);
+                }
+
+                CalculateScore();
+
+                UpdateFields();
+
+                if (PlayerSoftScore[0] > 21)
+                {
+                    EndGame();
+                }
+
+                if (PlayerSoftScore[0] == 21)
+                {
+                    break;
+                }
+
+                System.Threading.Thread.Sleep(100);
+
+            }
+
+            CalculateScore();
+
+            UpdateFields();
+
+            core.DrawContent();
+
+            EndGame(); // Check win
+
+            /* 
+
+            PlayersCards[0][0].ShowCard(); // Open hidden card
+
+
+            CalculateScore();
+
+            UpdateFields();
+
+            core.DrawContent();
+
+            System.Threading.Thread.Sleep(1000);
+
+            while(PlayerSoftScore[0] < 17 && PlayerSoftScore[0] < PlayerSoftScore[1])
+            {
+                GiveCard(0, false, true);
 
                 CalculateScore();
 
@@ -247,24 +316,14 @@ namespace ConsoleGameEngine.Samples.BlackJack
 
                 core.DrawContent();
 
-                System.Threading.Thread.Sleep(1000);
-
-                while(PlayerSoftScore[0] < 17 && PlayerSoftScore[0] < PlayerSoftScore[1])
-                {
-                    GiveCard(0, false, true);
-
-                    CalculateScore();
-
-                    UpdateFields();
-
-                    core.DrawContent();
-
-                    System.Threading.Thread.Sleep(500);
-                }
-
-                EndGame(); // Check win
+                System.Threading.Thread.Sleep(500);
+            }
 
             
+
+        */
+
+
 
         }
 
@@ -408,24 +467,7 @@ namespace ConsoleGameEngine.Samples.BlackJack
         private static void EndGame()
         {
 
-            
-           
-            if(PlayerSoftScore[0] == PlayerSoftScore[1] || (PlayerSoftScore[0] > 21 && PlayerSoftScore[1] > 21))
-            {
-                
-            }
-            else if((PlayerSoftScore[0] > PlayerSoftScore[1] && PlayerSoftScore[0] <= 21) || PlayerSoftScore[1] > 21)
-            {
-                
-            }
-            else if(PlayerSoftScore[1] > PlayerSoftScore[0] && PlayerSoftScore[1] <= 21)
-            {
-                
-            }
-            else
-            {
-                return;
-            }
+
 
             PlayersCards[0][0].ShowCard();
 
@@ -442,9 +484,13 @@ namespace ConsoleGameEngine.Samples.BlackJack
             {
                 Console.WriteLine("Победил дилер");
             }
-            else if (PlayerSoftScore[1] > PlayerSoftScore[0] && PlayerSoftScore[1] <= 21)
+            else if ((PlayerSoftScore[1] > PlayerSoftScore[0] && PlayerSoftScore[1] <= 21) || PlayerScore[0] > 21)
             {
                 Console.WriteLine("Победил игрок");
+            }
+            else
+            {
+                Console.WriteLine("Other");
             }
 
             Console.ReadKey();
